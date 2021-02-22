@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Fun Form</title>
+        <script type="text/javascript">
+        
+            var messages = null;
+            var submit = null;
+            var text = null;
+            var color = null;
+
+            window.addEventListener('load', function() {
+                messages = document.getElementById('messages');
+                submit = document.getElementById('submit');
+                submit.addEventListener('click', sendData);
+                text = document.getElementById('text');
+                color = document.getElementById('color');
+            });
+
+            function sendData() {
+                fetch('/formdata?text='+text.value+'&color='+color.value)
+                .then(response => response.json())
+                .then(data => populateMessages(data));
+            }
+
+            function populateMessages(newmessages) {
+                messages.innerHTML = "";
+                for (var i = 0; i < newmessages.length; i++)
+                {
+                    messages.innerHTML = messages.innerHTML + newmessages[i].text + "<br />";
+                }
+            } 
+
+        </script>
+    </head>
+    <body>
+        <div id="messages">
+            Previous messages
+        </div>
+
+        <form>
+            <label for="data">Enter Text to Post:</label>
+            <input type="text" id="text" name="data" value="Enter Text">
+            <input type="color" id="color" name="color"> <br />
+            <input type="button" id="submit" name="submit" value="Submit">
+        </form>
+    </body>
+
+</html>
