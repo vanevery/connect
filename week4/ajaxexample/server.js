@@ -1,3 +1,5 @@
+// Ajax example
+
 var datastore = require('nedb');
 var db = new datastore({ filename: 'database.json', autoload: true });
 
