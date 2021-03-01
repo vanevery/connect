@@ -48,7 +48,8 @@ app.post('/formdata', function (req, res) {
     // res.send(output);
     //res.send("Got your data! You submitted: " + req.body.data + " " + req.body.color);
 
-    res.render("outputtemplate.ejs",dataWrapper)
+    //res.render("outputtemplate.ejs",dataWrapper)
+    res.send(dataWrapper);
 });
 
 app.listen(80, function () {

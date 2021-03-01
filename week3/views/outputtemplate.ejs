@@ -9,11 +9,14 @@
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) { 
         %> 
-                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>"><%= data[i].text %></div>
+            <marquee behavior='alternate' scrollamount='25'><div id="dataout<%= i %>" style="color: <%= data[i].color %>"><%= data[i].text %></div></marquee>             
+
         <% 
                 } 
             }
         %>
+
+            <marquee>This should scroll across the screen</marquee>
 
         <form method="POST" action="/formdata">
             <label for="data">Enter Text to Post:</label>
