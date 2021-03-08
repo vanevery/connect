@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script type="text/javascript">
+
+            window.addEventListener('load', function() {
+
+                var searchtext = document.getElementById('searchtext');
+                var searchbutton = document.getElementById('searchbutton');
+                searchbutton.addEventListener('click', function() {
+                    searchWeather(searchtext.value);
+                });
+
+                function searchWeather(city) {
+                    fetch('http://localhost/weatherdata?city='+city)
+                    .then(response => response.json())
+                    .then(data => handleWeatherData(data));
+                }
+
+                function handleWeatherData(data) {
+                    console.log(data);
+
+                    document.getElementById("city").innerHTML = data.name;
+                    document.getElementById("temp").innerHTML = data.main.temp;
+                    document.getElementById("desc").innerHTML = data.weather[0].description;
+
+                }
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>My Weather Forecast</h1>
+        <div id="city"></div>
+        <div id="temp"></div>
+        <div id="desc"></div>
+        <div>
+            Search City: <input type="text" id="searchtext"> <input type="button" id="searchbutton" value="Search">
+        </div>
+    </body>
+</html>
