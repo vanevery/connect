@@ -1,5 +1,29 @@
 // p5 to database
+/*
+let c;
 
+function setup() {
+  c = createCanvas(400, 400);
+}
+
+function draw() {
+  //background(220);
+  ellipse(mouseX,mouseY,10,10);
+}
+
+function mousePressed() {
+  // P5 canvas is HTML 5 Canvas
+  let canvasString = c.elt.toDataURL();
+  console.log(canvasString);
+  httpPost(
+    "https://localhost.itp.io/canvas",
+    'json',
+    {canvas: canvasString},
+    function(result) {
+      console.log(result);
+    });
+}
+*/
 
 var https = require('https');
 var fs = require('fs'); // Using the filesystem module
