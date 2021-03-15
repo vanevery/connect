@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #map {
+              height: 50%;
+              width: 75%;
+            }
+            html, body {
+              height: 100%;
+            }
+        </style>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9ruCIgrZzGv0hka1tXLOZUIVMaXeNZUE&callback=initMap" async defer></script>
+        <script type="text/javascript">
+        function initMap() {	
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 40.6915327, lng: -73.9953138},
+                zoom: 15, // Street level
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                styles: [
+		  {
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "administrative",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "landscape",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#f1f4f0"
+			  },
+			  {
+				"visibility": "simplified"
+			  }
+			]
+		  },
+		  {
+			"featureType": "landscape",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "landscape",
+			"elementType": "labels.icon",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "landscape.man_made",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.park",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#e2ece1"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.school",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.sports_complex",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#edf2ec"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#dbe7d8"
+			  },
+			  {
+				"visibility": "simplified"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.local",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#ffffff"
+			  }
+			]
+		  },
+		  {
+			"featureType": "transit",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"featureType": "water",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"saturation": -20
+			  },
+			  {
+				"lightness": 25
+			  }
+			]
+		  },
+		  {
+			"featureType": "water",
+			"elementType": "labels",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  }
+		]	            
+            
+            
+            });
+
+            var locmarker = new google.maps.Marker({
+                position: {lat: 40.6915327, lng: -73.9953138},
+                map: map,
+                title: "I am a marker",
+                // icon: {
+                //     path: google.maps.SymbolPath.CIRCLE,
+                //     scale: 10
+                // } 
+            });
+
+            // Make a circle
+            var circle = new google.maps.Circle({
+                    strokeColor: "RED",
+                    strokeOpacity: 0.2,
+                    strokeWeight: 2,
+                    fillColor: "RED",
+                    fillOpacity: 0.15,
+                    map: map,
+                    center: {lat: 40.6915327, lng: -73.9953138},
+                    radius: 100
+            });					
+            circle.setMap(map);            
+        }
+
+        </script>
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+</html>
