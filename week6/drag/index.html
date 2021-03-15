@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            window.addEventListener('load', function() {
+                var drag1 = document.getElementById("1");
+                var drag2 = document.getElementById("2");
+
+                var drag1started = false;
+
+                drag1.addEventListener('mousedown', function(evt) {
+                    console.log(evt);
+                    drag1started = true;
+                });
+
+                document.addEventListener('mousemove', function(evt) {
+                    if (drag1started) {
+                        drag1.style.top = evt.clientY;
+                        drag1.style.left = evt.clientX;
+                    }
+                });
+
+                document.addEventListener('mouseup', function(evt) {
+                    drag1started = false;
+                });
+
+                drag2.addEventListener('click', function() {
+                    drag2.play();
+                    drag2.loop = true;
+                });
+
+                var counter = 0;
+                // window.setInterval(function() {
+                //     drag2.style.top = counter + "px";
+                //     counter++;
+                // }, 1000/30);
+
+                // Essentially how p5 draws
+                // approx 60 frames per second
+                requestAnimationFrame(draw);
+                    
+                function draw() {
+                    drag2.style.top = counter + "px";
+                    counter++;
+                    requestAnimationFrame(draw);
+                }
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id="1" style="position: absolute; top: 100px; left: 100px; user-select: none;">Drag Me</div>
+        <video id="2" width="100" style="position: absolute; top: 20px; left: 100px" src="https://itp.nyu.edu/~sve204/liveweb_fall2020/video.mp4"></div>
+    </body>
+</html>
