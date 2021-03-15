@@ -43,7 +43,7 @@ app.get('/search', function(req, res) {
 });
 
 app.get('/newpage', function(req,res) {
-  var dataWrapper = {title: "", maincontent: "", _id: ""};
+  var dataWrapper = {data: {title: "", maincontent: "", _id: -1}};
   if (typeof req.query._id != "undefined") {
     db.find({_id: req.query._id}, function(err, docs) {
       dataWrapper = {data: docs[0]};
