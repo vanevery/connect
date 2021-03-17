@@ -8,8 +8,19 @@
         <% 
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) { 
-        %> 
-                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>"><a href="/displayrecord?_id=<%= data[i]._id %>"><%= data[i].text %></a></div>
+                    if (data[i].file.mimetype == "image/jpg" || data[i].file.mimetype == "image/png") {
+        %>
+                        <img src="uploads/<%-data[i].file.filename %>">
+        <% 
+                    } else if (data[i].file.mimetype == "video/mp4") {
+        %>
+                        <video controls src="uploads/<%-data[i].file.filename %>"></video>
+        <%
+                    }
+        %>                    
+                    <div id="dataout<%= i %>" style="color: <%= data[i].color %>">
+                        <a href="/displayrecord?_id=<%= data[i]._id %>"><%= data[i].text %>
+                    </a></div>
         <% 
                 } 
             }

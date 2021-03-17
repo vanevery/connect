@@ -34,7 +34,7 @@ app.post('/formdata', upload.single('photo'), function (req, res) {
 
     console.log(req.file);
 
-    if (req.file.mimetype == "image/jpeg" || req.file.mimetype == "image/png") {
+    if (req.file.mimetype == "image/jpeg" || req.file.mimetype == "image/png" || req.file.mimetype == "video/mp4" || req.file.mimetype == "audio/mp3") {
 
       console.log(req.body.data);
 
